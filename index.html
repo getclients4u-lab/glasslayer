@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GlassLayer™ — The Glass Skin Protocol™</title>
+<meta name="description" content="The 8-part system that ends skincare confusion. Decode PDRN, layer like a pro, and build real glass skin with the 5-Step Glass Layer Stack™.">
+<style>
+  :root{
+    --bg:#0b0a12; --panel:#141020; --panel2:#1a1430; --line:#322752;
+    --txt:#f5f1fb; --dim:#b2a6cf; --muted:#7c6f9e;
+    --rose:#ff7aa8; --rose2:#ff4d8d; --gold:#ffd27a; --lilac:#b48cff; --glass:#8ff0e0;
+    --good:#5fe3b0; --bad:#ff7a8a;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+  .wrap{max-width:840px;margin:0 auto;padding:0 22px;}
+  .narrow{max-width:680px;margin:0 auto;}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;padding:70px 0 60px;text-align:center;background:
+    radial-gradient(1100px 520px at 50% -10%, rgba(255,122,168,.28), transparent 70%),
+    radial-gradient(800px 500px at 12% 30%, rgba(180,140,255,.22), transparent 70%),
+    radial-gradient(900px 600px at 88% 10%, rgba(143,240,224,.16), transparent 70%);}
+  .badge{display:inline-block;background:rgba(255,122,168,.12);border:1px solid rgba(255,122,168,.35);color:var(--rose);
+    font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:8px 16px;border-radius:999px;margin-bottom:26px;}
+  h1{font-size:clamp(2rem,5.6vw,3.5rem);line-height:1.08;font-weight:850;letter-spacing:-.02em;margin-bottom:20px;}
+  h1 .g{background:linear-gradient(120deg,var(--rose),var(--lilac) 55%,var(--glass));-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .sub{font-size:clamp(1.05rem,2.4vw,1.32rem);color:var(--dim);max-width:640px;margin:0 auto 30px;}
+  .sub b{color:var(--txt);}
+  .ctaRow{display:flex;flex-direction:column;align-items:center;gap:12px;}
+  .btn{display:inline-block;background:linear-gradient(135deg,var(--rose),var(--rose2));color:#fff;font-weight:800;
+    font-size:1.06rem;padding:17px 40px;border-radius:14px;text-decoration:none;border:none;cursor:pointer;
+    box-shadow:0 16px 44px rgba(255,77,141,.34);transition:transform .15s ease,filter .15s ease;}
+  .btn:hover{transform:translateY(-2px);filter:brightness(1.06);}
+  .btn.big{font-size:1.14rem;padding:19px 46px;}
+  .btn.ghost{background:transparent;border:1px solid var(--line);color:var(--txt);box-shadow:none;font-size:.95rem;padding:12px 22px;}
+  .micro{font-size:.85rem;color:var(--muted);}
+  .stars{color:var(--gold);font-size:1.05rem;letter-spacing:2px;}
+
+  /* ---------- SECTION ---------- */
+  section{padding:62px 0;border-top:1px solid rgba(50,39,82,.6);}
+  h2{font-size:clamp(1.5rem,3.6vw,2.15rem);font-weight:800;line-height:1.18;margin-bottom:16px;letter-spacing:-.015em;}
+  h2 .g{background:linear-gradient(120deg,var(--rose),var(--lilac));-webkit-background-clip:text;background-clip:text;color:transparent;}
+  h3{font-size:1.18rem;font-weight:750;margin-bottom:8px;}
+  p{color:var(--dim);margin-bottom:14px;font-size:1.03rem;}
+  p b,li b{color:var(--txt);}
+  .kicker{color:var(--rose);font-size:13px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;margin-bottom:12px;}
+  ul,ol{margin:0 0 16px 22px;color:var(--dim);}
+  li{margin-bottom:9px;font-size:1.02rem;}
+
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:26px 26px;margin-bottom:16px;}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  @media(max-width:700px){.grid2,.grid3{grid-template-columns:1fr;}}
+  .pain{background:linear-gradient(180deg,rgba(255,122,168,.06),transparent);border:1px solid rgba(255,122,168,.2);border-radius:16px;padding:20px 22px;margin-bottom:14px;}
+  .pain b{color:var(--rose);}
+  .step{display:flex;gap:16px;align-items:flex-start;margin-bottom:18px;}
+  .stepnum{flex-shrink:0;width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,var(--rose),var(--lilac));
+    color:#fff;font-weight:850;display:flex;align-items:center;justify-content:center;font-size:1.15rem;}
+  .step h3{margin-bottom:3px;}
+  .step p{margin-bottom:0;font-size:.98rem;}
+
+  .deliv{display:flex;gap:14px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:17px 18px;margin-bottom:11px;}
+  .deliv .ic{font-size:1.5rem;line-height:1;}
+  .deliv h4{font-size:1.02rem;font-weight:750;margin-bottom:3px;}
+  .deliv p{margin:0;font-size:.92rem;color:var(--dim);}
+
+  .quote{background:var(--panel2);border-left:3px solid var(--rose);border-radius:0 14px 14px 0;padding:15px 20px;margin-bottom:14px;}
+  .quote p{margin-bottom:5px;color:var(--txt);font-size:.99rem;}
+  .quote .who{font-size:.83rem;color:var(--muted);}
+
+  .price{background:linear-gradient(180deg,rgba(180,140,255,.1),rgba(255,122,168,.05));border:1px solid rgba(180,140,255,.3);
+    border-radius:22px;padding:34px 28px;text-align:center;}
+  .anchor{color:var(--muted);font-size:1.05rem;margin-bottom:4px;}
+  .anchor s{color:var(--muted);}
+  .bigprice{font-size:3.2rem;font-weight:850;color:var(--txt);line-height:1;margin:6px 0 4px;}
+  .bigprice small{font-size:1.1rem;color:var(--dim);font-weight:600;}
+  .save{display:inline-block;background:rgba(95,227,176,.14);color:var(--good);font-weight:700;font-size:.86rem;padding:5px 14px;border-radius:999px;margin-bottom:18px;}
+  .price ul{list-style:none;margin:0 0 22px;text-align:left;max-width:420px;margin-inline:auto;}
+  .price li{padding-left:26px;position:relative;margin-bottom:10px;color:var(--dim);font-size:.98rem;}
+  .price li:before{content:"✓";position:absolute;left:0;color:var(--good);font-weight:800;}
+
+  .guarantee{background:rgba(95,227,176,.07);border:1px solid rgba(95,227,176,.28);border-radius:16px;padding:20px 22px;text-align:center;margin-top:18px;}
+  .guarantee b{color:var(--good);}
+
+  .faq{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin-bottom:11px;}
+  .faq h4{font-size:1.02rem;font-weight:750;margin-bottom:6px;color:var(--txt);}
+  .faq p{margin:0;font-size:.95rem;}
+
+  .finalcta{text-align:center;background:radial-gradient(700px 380px at 50% 0%,rgba(255,122,168,.2),transparent 70%);padding:70px 0;}
+  footer{padding:34px 22px;text-align:center;color:var(--muted);font-size:.8rem;line-height:1.7;}
+  footer a{color:var(--muted);}
+  .countdown{font-size:.9rem;color:var(--gold);font-weight:700;margin-top:6px;}
+
+  .stack{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px;margin:22px 0;}
+  .stack h3{margin-bottom:14px;}
+  .layers{list-style:none;margin:0;padding:0;}
+  .layers li{display:flex;gap:12px;align-items:center;padding:10px 0;border-bottom:1px dashed var(--line);font-size:.98rem;color:var(--txt);font-weight:600;}
+  .layers li:last-child{border-bottom:none;}
+  .layers .tag{background:linear-gradient(135deg,var(--rose),var(--lilac));color:#fff;font-size:.7rem;font-weight:800;padding:3px 9px;border-radius:6px;letter-spacing:.08em;min-width:86px;text-align:center;}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="badge">✦ The 2026 Glass Skin System</div>
+    <h1>Your Skincare Isn't Broken.<br>It's <span class="g">In The Wrong Order.</span></h1>
+    <p class="sub">The <b>Glass Skin Protocol™</b> is the 8-part system that decodes PDRN, fixes your layering, and builds real glass skin — with the <b>5-Step Glass Layer Stack™</b>. No 10-step haul. No $300 bottles. Just the right sequence, repeated until it compounds.</p>
+    <div class="ctaRow">
+      <a class="btn big cta-link" href="#buy">Get The Glass Skin Protocol — $19</a>
+      <div class="stars">★★★★★ <span class="micro" style="color:var(--dim)">Loved by people who were tired of guessing</span></div>
+      <div class="micro">Instant digital download · 8 PDFs · Works for every skin type</div>
+    </div>
+  </div>
+</header>
+
+<!-- PROBLEM -->
+<section>
+  <div class="wrap narrow">
+    <div class="kicker">Sound familiar?</div>
+    <h2>You own more skincare than ever. <span class="g">And your skin looks exactly the same.</span></h2>
+    <div class="pain"><b>You bought the PDRN serum</b> everyone's posting — and you don't actually know what it does or where it goes.</div>
+    <div class="pain"><b>Your feed says 10 steps.</b> Your face says irritated, congested, and over-exfoliated.</div>
+    <div class="pain"><b>You've spent $400+</b> on bottles that promise glow and deliver nothing but clutter.</div>
+    <div class="pain"><b>You can't tell</b> a real formula from an overpriced dupe — so you buy both, and neither works.</div>
+    <p style="margin-top:20px;font-size:1.08rem;color:var(--txt)">Here's the thing nobody selling you products will admit: <b>your skin was never the problem. Your sequence was.</b></p>
+  </div>
+</section>
+
+<!-- MECHANISM -->
+<section>
+  <div class="wrap narrow">
+    <div class="kicker">The mechanism</div>
+    <h2>The <span class="g">5-Step Glass Layer Stack™</span></h2>
+    <p>Glass skin isn't one miracle bottle. It's what happens when five layers go on <b>in the right order, at the right thickness, on the right night</b> — then get left alone long enough to work. This is the spine of the entire protocol:</p>
+    <div class="stack">
+      <ul class="layers">
+        <li><span class="tag">CLEANSE</span> Reset the surface — without stripping the barrier</li>
+        <li><span class="tag">HYDRATE</span> Flood the skin with water while it's damp (the "glass" layer)</li>
+        <li><span class="tag">TREAT</span> Deliver the ONE active that matters tonight (PDRN &amp; friends)</li>
+        <li><span class="tag">SEAL</span> Lock it in, rebuild the barrier overnight</li>
+        <li><span class="tag">PROTECT</span> Sunscreen, every morning, non-negotiable</li>
+      </ul>
+    </div>
+    <p style="color:var(--txt)"><b>Get the order right and everything else gets easier.</b> Get it wrong and you'll spend years blaming your genetics for a sequence mistake.</p>
+  </div>
+</section>
+
+<!-- DELIVERABLES -->
+<section>
+  <div class="wrap">
+    <div class="kicker" style="text-align:center">What you get</div>
+    <h2 style="text-align:center">8 deliverables. One complete system.</h2>
+    <p style="text-align:center;max-width:600px;margin:0 auto 28px">Not a "guide." A working kit you actually use — the decoder, the playbook, the ingredient chart, the tracker, and the 60-day calendar.</p>
+    <div class="narrow">
+      <div class="deliv"><div class="ic">📘</div><div><h4>1. The Glass Skin Decoder</h4><p>The plain-English crash course — why your skin "stopped working" and the 5-Step Stack that fixes it.</p></div></div>
+      <div class="deliv"><div class="ic">🧴</div><div><h4>2. The Glass Routine Playbook</h4><p>Build your exact AM + PM routine in 20 minutes. Three skin profiles, one active rotation.</p></div></div>
+      <div class="deliv"><div class="ic">🧬</div><div><h4>3. The PDRN Field Guide</h4><p>What PDRN actually is, what it can't do, and how to spot a real formula from an overpriced dupe.</p></div></div>
+      <div class="deliv"><div class="ic">📋</div><div><h4>4. The K-Beauty Ingredient Chart</h4><p>40+ ingredients sorted by what they DO and where they belong. The danger combos and the power pairings.</p></div></div>
+      <div class="deliv"><div class="ic">🛒</div><div><h4>5. The Glass Skin Starter Kit</h4><p>The exact shopping list — 4 budget stacks, and the products to skip entirely.</p></div></div>
+      <div class="deliv"><div class="ic">🗺️</div><div><h4>6. The Layering Map</h4><p>The visual order system — what goes on top of what, and the 5 mistakes that ruin everything.</p></div></div>
+      <div class="deliv"><div class="ic">📊</div><div><h4>7. The 30-Day Glass Tracker</h4><p>Daily log, weekly ritual, barrier health check. Prove it's working and catch what isn't.</p></div></div>
+      <div class="deliv"><div class="ic">🗓️</div><div><h4>8. The 60-Day Glass Rollout</h4><p>Week by week — from confused to glowing, one change at a time.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section>
+  <div class="wrap narrow">
+    <div class="kicker">How it works</div>
+    <h2>Three moves. <span class="g">Tonight.</span></h2>
+    <div class="step"><div class="stepnum">1</div><div><h3>Stop adding. Fix the order first.</h3><p>Don't buy anything for 72 hours. We're going to sequence what you already own before you spend another dollar.</p></div></div>
+    <div class="step"><div class="stepnum">2</div><div><h3>Build your stack from the playbook.</h3><p>Pick your skin profile, follow the templates, cap it at five layers. Most people feel calmer skin within a week.</p></div></div>
+    <div class="step"><div class="stepnum">3</div><div><h3>Run the 60-day calendar.</h3><p>One change per week. Log it. Watch the compounding. By week 4 the photos start telling the story.</p></div></div>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<section>
+  <div class="wrap narrow">
+    <div class="kicker">What people say</div>
+    <h2>Sample results from early readers</h2>
+    <div class="quote"><p>"I finally understood that I was layering my vitamin C under my toner. Ten years of wasting money — fixed in one afternoon."</p><div class="who">— M., combo skin, 34</div></div>
+    <div class="quote"><p>"The PDRN guide alone was worth it. I was about to buy a $180 'clinic dupe' that was 90% filler."</p><div class="who">— R., reactive skin, 29</div></div>
+    <div class="quote"><p>"Week 4 photo vs week 1 photo — I actually gasped. Same products, different order."</p><div class="who">— J., dry skin, 41</div></div>
+    <p class="micro" style="text-align:center">Illustrative early-reader feedback. Individual results vary.</p>
+  </div>
+</section>
+
+<!-- PRICE -->
+<section id="buy">
+  <div class="wrap narrow">
+    <div class="price">
+      <div class="anchor">Real value: <s>$79</s></div>
+      <div class="bigprice">$19 <small>one-time</small></div>
+      <div class="save">✦ Founder price — save 76%</div>
+      <ul>
+        <li>All 8 PDF deliverables (the full system)</li>
+        <li>The 5-Step Glass Layer Stack™</li>
+        <li>3 skin-profile routines + active rotation</li>
+        <li>40+ ingredient chart + danger combos</li>
+        <li>4 budget shopping stacks</li>
+        <li>30-day tracker + 60-day rollout calendar</li>
+        <li>Instant download + access code by email</li>
+      </ul>
+      <a class="btn big block cta-link" href="#buy" style="width:100%;max-width:420px;">Yes — Give Me The Glass Skin Protocol For $19 →</a>
+      <div class="countdown">🔒 Secure checkout · Instant access · No subscription</div>
+      <div class="guarantee" style="margin-top:20px">
+        <b>60-Day "Glow Or It's Free" Guarantee.</b><br>
+        <span style="color:var(--dim);font-size:.95rem">Run the protocol for 60 days. If your skin isn't visibly better, reply to your receipt and we'll refund you — you keep everything either way.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="wrap narrow">
+    <div class="kicker">FAQ</div>
+    <h2>Questions, answered</h2>
+    <div class="faq"><h4>Do I need expensive products?</h4><p>No. You need the right four slots filled and the right sequence. The Starter Kit shows you how to build a genuinely effective routine for the price of one prestige bottle.</p></div>
+    <div class="faq"><h4>What if I have sensitive / reactive skin?</h4><p>There's a dedicated profile for you, plus a barrier-rebuild path. Two full weeks of hydration + barrier only before any active.</p></div>
+    <div class="faq"><h4>Is PDRN safe? What is it really?</h4><p>PDRN is a well-studied repair-signal ingredient (a DNA fragment, usually salmon-derived). The Field Guide sets honest expectations — what it does, what it doesn't, and how to buy a real formula.</p></div>
+    <div class="faq"><h4>How fast will I see results?</h4><p>Barrier calm in ~1 week. Tone + hydration visible by week 4. PDRN/peptide glow compounds over 6–8 weeks. The tracker makes the timeline honest.</p></div>
+    <div class="faq"><h4>Is this medical advice?</h4><p>No. It's educational skincare information. Patch-test new products and consult a dermatologist for persistent or severe concerns.</p></div>
+    <div class="faq"><h4>How do I get my files?</h4><p>Immediately. You'll receive a personal access code by email and unlock all 8 PDFs from your member page.</p></div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<div class="finalcta">
+  <div class="wrap narrow">
+    <h2>Your skin is compounding <span class="g">something</span> every day.</h2>
+    <p style="max-width:560px;margin:0 auto 26px;font-size:1.08rem">Right now it's probably compounding the wrong sequence. For $19, you can make it compound glass skin instead.</p>
+    <a class="btn big cta-link" href="#buy">Get The Glass Skin Protocol — $19 →</a>
+    <div class="micro" style="margin-top:14px">Instant download · 60-day guarantee · Every skin type</div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>GlassLayer™ · The Glass Skin Protocol™</p>
+    <p>Educational skincare information only. Not medical advice. Not affiliated with any brand or ingredient manufacturer mentioned. Results depend on individual skin and consistent execution.</p>
+    <p style="margin-top:10px"><a href="/thank-you.html">After purchase</a> · <a href="/download.html">Member downloads</a></p>
+  </div>
+</footer>
+
+<script>
+// Wire every CTA button to the Stripe payment link.
+var PAYLINK = "__PAYLINK__";
+document.querySelectorAll('.cta-link').forEach(function(a){
+  a.setAttribute('href', PAYLINK);
+  a.setAttribute('rel','noopener');
+});
+</script>
+</body>
+</html>

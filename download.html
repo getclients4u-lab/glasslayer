@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GlassLayer™ — Your Downloads</title>
+<style>
+  :root { --bg:#0b0f0e; --panel:#121916; --line:#243029; --txt:#e8f0ea; --dim:#93a89a; --accent:#4ade80; --good:#4ade80; --bad:#f87171; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--txt); font-family:'Segoe UI',system-ui,sans-serif; min-height:100vh; }
+  .wrap { max-width:800px; margin:0 auto; padding:40px 20px 80px; }
+  .logo { font-size:22px; font-weight:700; margin-bottom:6px; }
+  .logo span { color:var(--accent); }
+  .sub { color:var(--dim); font-size:14px; margin-bottom:32px; }
+  .gate { background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:28px; margin-bottom:28px; }
+  .gate h2 { font-size:18px; margin-bottom:8px; }
+  .gate p { color:var(--dim); font-size:13px; margin-bottom:18px; }
+  input { width:100%; background:var(--bg); border:1px solid var(--line); color:var(--txt); padding:12px 14px; border-radius:8px; font-size:15px; margin-bottom:12px; }
+  .btn { background:var(--accent); color:#06221a; border:none; padding:12px 20px; border-radius:8px; font-weight:700; font-size:14px; cursor:pointer; width:100%; }
+  .btn:hover { filter:brightness(1.1); }
+  .err { color:var(--bad); font-size:13px; margin-top:10px; min-height:18px; }
+  .locked { display:none; }
+  .files { display:grid; gap:12px; }
+  .file { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:16px 18px; display:flex; align-items:center; justify-content:space-between; gap:14px; }
+  .file h3 { font-size:15px; margin-bottom:3px; }
+  .file p { color:var(--dim); font-size:12.5px; line-height:1.45; }
+  .file .btn { width:auto; padding:9px 16px; font-size:12.5px; flex-shrink:0; }
+  .badge { display:inline-block; background:rgba(74,222,128,0.12); color:var(--good); font-size:11px; padding:2px 10px; border-radius:12px; font-weight:600; margin-bottom:6px; }
+  footer { margin-top:40px; text-align:center; color:var(--dim); font-size:12px; }
+  .start { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:20px; margin-bottom:16px; }
+  .start h3 { font-size:16px; margin-bottom:8px; }
+  .start ol { padding-left:20px; color:var(--dim); font-size:13.5px; line-height:1.9; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="logo">🗺️ Gut<span>Map</span>™</div>
+  <div class="sub">The Glass Skin Protocol™ — your member downloads</div>
+
+  <div id="gateBox" class="gate">
+    <h2>🔐 Unlock your downloads</h2>
+    <p>Enter the email you purchased with and your personal access code (sent in your order confirmation email).</p>
+    <input id="email" type="email" placeholder="you@email.com" autocomplete="email">
+    <input id="code" type="text" placeholder="GL-XXXXX-XXXXX" autocomplete="off">
+    <button class="btn" onclick="unlock()">Unlock →</button>
+    <div class="err" id="err"></div>
+  </div>
+
+  <div id="memberArea" class="locked">
+    <div class="start">
+      <span class="badge">✅ Unlocked</span>
+      <h3>Start here — the 5-Step Glass Layer Stack</h3>
+      <ol>
+        <li><b>CLEANSE → HYDRATE:</b> read The Glass Skin Decoder + build the base 4 (no actives yet)</li>
+        <li><b>TREAT:</b> add ONE active (PDRN/peptide) 2 nights a week from the Routine Playbook</li>
+        <li><b>SEAL → PROTECT:</b> master the layering order (Layering Map) and never skip SPF</li>
+        <li><b>TRACK:</b> log daily, run the weekly ritual, follow the 60-Day Rollout</li>
+      </ol>
+    </div>
+    <div class="files">
+      <div class="file">
+        <div><h3>📘 1. The Glass Skin Decoder</h3><p>Plain-English crash course — why your skin "stopped working" + the 5-Step Glass Layer Stack. Start here.</p></div>
+        <button class="btn" onclick="dl('01-glass-skin-decoder.pdf', this)">Download</button>
+      </div>
+      <div class="file">
+        <div><h3>🧴 2. The Glass Routine Playbook</h3><p>Build your exact AM + PM routine in 20 minutes. Three skin profiles + the active rotation.</p></div>
+        <button class="btn" onclick="dl('02-glass-routine-playbook.pdf', this)">Download</button>
+      </div>
+      <div class="file">
+        <div><h3>🧬 3. The PDRN Field Guide</h3><p>What PDRN actually is, what it can't do, and how to spot a real formula from an overpriced dupe.</p></div>
+        <button class="btn" onclick="dl('03-pdrn-field-guide.pdf', this)">Download</button>
+      </div>
+      <div class="file">
+        <div><h3>📋 4. The K-Beauty Ingredient Chart</h3><p>40+ ingredients sorted by what they DO and where they belong. Danger combos + power pairings.</p></div>
+        <button class="btn" onclick="dl('04-ingredient-chart.pdf', this)">Download</button>
+      </div>
+      <div class="file">
+        <div><h3>🛒 5. The Glass Skin Starter Kit</h3><p>The exact shopping list — 4 budget stacks, and the products to skip entirely.</p></div>
+        <button class="btn" onclick="dl('05-starter-kit.pdf', this)">Download</button>
+      </div>
+      <div class="file">
+        <div><h3>🗺️ 6. The Layering Map</h3><p>The visual order system — what goes on top of what, and the 5 mistakes that ruin everything.</p></div>
+        <button class="btn" onclick="dl('06-layering-map.pdf', this)">Download</button>
+      </div>
+      <div class="file">
+        <div><h3>📊 7. The 30-Day Glass Tracker</h3><p>Daily log, weekly ritual, barrier health check. Prove it's working and catch what isn't.</p></div>
+        <button class="btn" onclick="dl('07-glass-tracker.pdf', this)">Download</button>
+      </div>
+      <div class="file">
+        <div><h3>🗓️ 8. The 60-Day Glass Rollout</h3><p>Week-by-week — from confused to glowing, one change at a time.</p></div>
+        <button class="btn" onclick="dl('08-60-day-rollout.pdf', this)">Download</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>GlassLayer™ · educational skincare information · not medical advice · results depend on your skin and execution</footer>
+</div>
+
+<script>
+function unlock() {
+  const email = document.getElementById('email').value.trim();
+  const code = document.getElementById('code').value.trim();
+  const err = document.getElementById('err');
+  if (!email || !code) { err.textContent = 'Please enter both email and access code.'; return; }
+  fetch('/api/verify', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, code }) })
+    .then(r => r.json())
+    .then(d => {
+      if (d.ok) {
+        sessionStorage.setItem('gm_email', email);
+        sessionStorage.setItem('gm_code', code);
+        document.getElementById('gateBox').style.display = 'none';
+        document.getElementById('memberArea').classList.remove('locked');
+        document.getElementById('memberArea').style.display = 'block';
+        err.textContent = '';
+      } else {
+        err.textContent = d.error || 'Access denied. Check your code and email.';
+      }
+    })
+    .catch(() => { err.textContent = 'Network error — try again.'; });
+}
+
+function dl(file, btn) {
+  const email = sessionStorage.getItem('gl_email');
+  const code = sessionStorage.getItem('gl_code');
+  if (!email || !code) { alert('Session expired — please unlock again.'); location.reload(); return; }
+  const orig = btn.textContent;
+  btn.textContent = '⏳ …';
+  btn.disabled = true;
+  fetch('/api/download', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, code, file }) })
+    .then(async r => {
+      if (!r.ok) { const d = await r.json().catch(() => ({})); throw new Error(d.error || 'Download failed (' + r.status + ')'); }
+      const blob = await r.blob();
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = file;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      btn.textContent = '✅ Sent';
+    })
+    .catch(e => { alert(e.message); btn.textContent = orig; })
+    .finally(() => { btn.disabled = false; setTimeout(() => { if (btn.textContent === '✅ Sent') btn.textContent = orig; }, 2500); });
+}
+
+// auto-unlock if already verified this session
+const em = sessionStorage.getItem('gl_email');
+const ec = sessionStorage.getItem('gl_code');
+if (em && ec) {
+  fetch('/api/verify', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: em, code: ec }) })
+    .then(r => r.json())
+    .then(d => { if (d.ok) { document.getElementById('gateBox').style.display = 'none'; document.getElementById('memberArea').classList.remove('locked'); document.getElementById('memberArea').style.display = 'block'; } });
+}
+document.getElementById('code').addEventListener('keydown', (e) => { if (e.key === 'Enter') unlock(); });
+</script>
+</body>
+</html>
